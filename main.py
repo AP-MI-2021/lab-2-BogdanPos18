@@ -1,3 +1,25 @@
+#Problema 1
+def get_largest_prime_below(n):
+    if n <= 2:
+        return -1
+    found = 0
+    largest = n-1
+    while found == 0:
+        ok = 1
+        for i in range(2, largest//2+1):
+            if n % i  == 0:
+                ok = 0
+        if ok == 1:
+            found = 1
+        else:
+            largest -= 1
+    return largest
+
+def test_get_largest_prime_below():
+    assert (get_largest_prime_below(3) == 2) is True
+    assert (get_largest_prime_below(12) == 7) is False
+
+
 #Problema 13
 def get_temp(temp, from_, to):
     if from_ == 'K':
@@ -55,6 +77,12 @@ def test_get_cmmmc():
 
 #Programul principal
 def program():
+    test_get_largest_prime_below()
+    n = int(input("Introduceti un numar: "))
+    if get_largest_prime_below(n)==-1:
+        print("Nu exista!")
+    else:
+        print(get_largest_prime_below(n))
     test_get_temp()
     print("Pentru a citi date, apasati tasta Y. Pentru a opri programul, apasati tasta N \n")
     c = str(input())
