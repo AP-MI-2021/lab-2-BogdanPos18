@@ -77,28 +77,35 @@ def test_get_cmmmc():
 
 #Programul principal
 def program():
-    test_get_largest_prime_below()
-    n = int(input("Introduceti un numar: "))
-    if get_largest_prime_below(n)==-1:
-        print("Nu exista!")
-    else:
-        print(get_largest_prime_below(n))
-    test_get_temp()
-    print("Pentru a citi date, apasati tasta Y. Pentru a opri programul, apasati tasta N \n")
-    c = str(input())
-    while c == 'y':
-        temp = float(input())
-        from_ = str(input())
-        to = str(input())
-        print("Temperatura din grade ", from_, " in grade ", to, " este ", get_temp(temp, from_, to), '\n')
+    print("Pentru a folosi functia get_largest_prime_below(), apasati tasta 1\n")
+    print("Pentru a folosi functia get_temp(), apasati tasta 2\n")
+    print("Pentru a folosi functia get_cmmmc(), apasati tasta 3\n")
+    a = str(input())
+    if a == '1':
+        test_get_largest_prime_below()
+        n = int(input("Introduceti un numar: "))
+        if get_largest_prime_below(n)==-1:
+            print("Nu exista!")
+        else:
+            print(get_largest_prime_below(n))
+    if a == '2':
+        test_get_temp()
+        print("Pentru a citi date, apasati tasta Y. Pentru a opri programul, apasati tasta N \n")
         c = str(input())
-    test_get_cmmmc()
-    numbers = []
-    n = int(input("Introdu lungimea sirului: "))
-    for i in range(0,n):
-        x = int(input("Introdu o valoare: "))
-        numbers.append(x)
-    print(get_cmmmc(numbers))
+        while c == 'y':
+            temp = float(input())
+            from_ = str(input())
+            to = str(input())
+            print("Temperatura din grade ", from_, " in grade ", to, " este ", get_temp(temp, from_, to), '\n')
+            c = str(input())
+    if a == '3':
+        test_get_cmmmc()
+        numbers = []
+        n = int(input("Introdu lungimea sirului: "))
+        for i in range(0,n):
+            x = int(input("Introdu o valoare: "))
+            numbers.append(x)
+        print(get_cmmmc(numbers))
 
 program()
 
